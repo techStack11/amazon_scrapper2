@@ -41,7 +41,7 @@ def search_products(product_name: str, page_number: int=1, location:str="in", re
                     continue
                     
                 product_title = h2.text.strip()
-                #a = h2.find("a")
+               
                 
                 
                 name = product_div.get("data-asin")

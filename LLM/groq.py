@@ -1,9 +1,9 @@
-from openai import OpenAI
-from Helpers.config import OPENAI_API_KEY
+from groq import Groq
+from Helpers.config import GROQ_API_KEY  # Add your Groq API Key here
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = Groq(api_key=GROQ_API_KEY)
 
-def ask_openai(prompt: str, model="gpt-3.5-turbo", temperature=0.7):
+def ask_groq(prompt: str, model="meta-llama/llama-4-scout-17b-16e-instruct", temperature=0.7):
     response = client.chat.completions.create(
         model=model,
         messages=[
@@ -13,5 +13,3 @@ def ask_openai(prompt: str, model="gpt-3.5-turbo", temperature=0.7):
         temperature=temperature
     )
     return response.choices[0].message.content
-
-
